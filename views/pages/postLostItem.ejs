@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include head %>
+</head>
+<body>
+  <header class="banner navbar navbar-default navbar-static-top" role="banner">
+    <div class="container"  style="background-color:aqua; width:100%">
+      <div class="cta pull-right">
+        <%if (sess) { %>
+          <a class="text-primary" href="/Logout">Logout</a>
+          <% } else{ %>
+        <a class="text-primary" href="/SignUplogin">SignUp/Login</a>
+        <% } %>
+      </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="navigationcta" >
+
+                    <nav class="collapse navbar-left navbar-collapse" role="navigation">
+
+                        <ul id="menu-primary-navigation" class="nav navbar-nav" style="color:black">
+                            <li class="active menu-home">
+                                <a class="text-primary" href="/">Home</a>
+                            </li>
+                            <li class="menu-about">
+                                <a class="text-primary" href="">About</a>
+                            </li>
+                            <li class="menu-contact">
+                              <a class="text-primary" href="">Contact</a>
+                            </li>
+                            <li class="menu-search">
+                              <a class="text-primary" href="">Search</a>
+                            </l>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+      </div>
+    </div>
+
+        <div class="container">
+          <div id="">
+            <a href=""><div class="">Lost Items</div></a>
+            <a href=""><div class="">Found Items</div></a>
+          </div>
+        </div>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    </header>
+    <div class="wrap container " role="document">
+        <main class="main" role="main">
+          <form enctype="multipart/form-data" action="/LostItem" method="post">
+      <div class="row">
+        <div class='col-sm-3'>
+              <div class="form-group">
+                Item Name:
+                <div class="required-field-block">
+            <input type="text" name="ItemName" placeholder="Item Name">
+            <div class="required-icon">
+                <div class="text">*</div>
+            </div>
+        </div>
+        Item Description: <div class="required-field-block">
+            <textarea rows="3" name="ItemDesc" class="form-control" placeholder="Item Description"></textarea>
+            <div class="required-icon">
+                <div class="text">*</div>
+            </div>
+        </div>
+        Missing date:
+
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' name="ItemDate" class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+        Missing Item Image:
+
+      	<div class="box">
+      		<input type="file" name="myImage" id="file-input">
+      	</div>
+      	<!-- leftbox -->
+      	<div class="box-2">
+      		<div class="result"></div>
+      	</div>
+
+        <button type="submit" class="btn btn-default">Add Item</button>
+</form>
+
+
+
+</div>
+
+  </main>
+
+
+      </div>
+<footer>
+  <% include footer %>
+  <script src="./js/postItem.js"></script>
+</footer>
+</body>
+
+</html>

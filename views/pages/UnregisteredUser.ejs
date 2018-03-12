@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include head %>
+</head>
+<body>
+  <header class="banner navbar navbar-default navbar-static-top" role="banner">
+    <div class="container"  style="background-color:aqua; width:100%">
+      <div class="cta pull-right">
+        <%if (sess) { %>
+          <a class="text-primary" href="/Logout">Logout</a>
+          <% } else{ %>
+        <a class="text-primary" href="/SignUplogin">SignUp/Login</a>
+        <% } %>
+      </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="navigationcta" >
+
+                    <nav class="collapse navbar-left navbar-collapse" role="navigation">
+
+                        <ul id="menu-primary-navigation" class="nav navbar-nav" style="color:black">
+                            <li class="active menu-home">
+                                <a class="text-primary" href="/">Home</a>
+                            </li>
+                            <li class="menu-about">
+                                <a class="text-primary" href="">About</a>
+                            </li>
+                            <li class="menu-contact">
+                              <a class="text-primary" href="">Contact</a>
+                            </li>
+                            <li class="menu-search">
+                              <a class="text-primary" href="">Search</a>
+                            </l>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+      </div>
+    </div>
+
+        <div class="container">
+          <div id="">
+            <a href=""><div class="">Lost Items</div></a>
+            <a href=""><div class="">Found Items</div></a>
+          </div>
+        </div>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    </header>
+    <div class="wrap container " role="document">
+        <main class="main" role="main">
+          <form enctype="multipart/form-data" action="/SignUplogin" method="post">
+            <h3>  This page is restricted. Please <a href="/SignUplogin">Log in / Register</a> to view this page.</h3>
+          </form>
+        </main>
+    </div>
+<footer>
+  <% include footer %>
+  <script src="./js/postItem.js"></script>
+</footer>
+</body>
+
+</html>

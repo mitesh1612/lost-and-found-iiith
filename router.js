@@ -22,30 +22,12 @@ var storage = multer.diskStorage({
 var upload = multer({
   storage: storage
 });
-var lostCount,foundCount,claimLostCount,claimFoundCount,totalLF,pFoundItems,pLostItems;
 // router.get('/',(req,res)=>{
 //   res.render('pages/test',{"sess" : req.session.email});
 // });
 router.get('/',(req,res)=> {
   // res.render('pages/index',{"sess" : req.session});
-  // GENERATE COUNTS
-  LostItem.count({},(err,cnt) => {
-    console.log("Count of Lost Items: "+cnt);
-    lostCount=cnt;
-    FoundItem.count({},(err,cnt1) => {
-      console.log("Count of Found Items: "+cnt1);
-      foundCount=cnt1;
-      totalLF=lostCount+foundCount;
-      console.log("Total Lost and Found: "+totalLF);
-      var lostR = (lostCount/totalLF)*100;
-      var foundR = (foundCount/totalLF)*100;
-      pLostItems=(parseInt(lostR/5)*5);
-      pFoundItems=(parseInt(foundR/5)*5);
-      console.log(pLostItems+" % of Items Lost");
-      console.log(pFoundItems+" % of Items Found");
-    });
-  });
-  res.render('pages/FrontPage/index',{"sess" : req.session, "foundP" : pFoundItems, "lostP" : pLostItems});
+  res.render('pages/FrontPage/index',{"sess" : req.session});
 });
 router.get('/SignUplogin',(req,res)=> {
   res.render('pages/login',{"sess" : req.session});

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Post an Item You Found</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+        <link rel="stylesheet" href="./pages/postFoundPage/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./pages/postFoundPage/assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./pages/postFoundPage/assets/css/animate.css">
+        <link rel="stylesheet" href="./pages/postFoundPage/assets/css/style.css">
+        <link rel="stylesheet" href="./pages/postFoundPage/assets/css/media-queries.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="./pages/postFoundPage/assets/ico/favicon.png">
+
+    </head>
+
+    <body>
+
+		<!-- Top menu -->
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Lost and Found</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="top-navbar-1">
+					<ul class="nav navbar-nav navbar-right">
+            <li><a class="" href="/">Home</a></li>
+            <%if (sess.email) { %>
+              <span class="badge"> Hi <%= sess.userName %> !!</span>
+              <a class="btn btn-warning" href="/Logout">Logout</a>
+              <% } else{ %>
+						<li><a class="scroll-link" href="/SignUplogin">Login/SignUp</a></li>
+            <% } %>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+        <!-- Top content -->
+        <div class="top-content">
+        	<div class="container">
+
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 text">
+						<h1 class="wow fadeInLeftBig">Post an Item You Found</h1>
+						<div class="description wow fadeInLeftBig">
+							<p>
+								Enter the relevant details of the item you found. It may help someone...
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 r-form-1-box wow fadeInUp">
+						<div class="r-form-1-top">
+							<div class="r-form-1-top-left">
+								<h3>Details of the Found Item</h3>
+								<p>(Share the necessary information so that its easy for other users to find it. <strong>All Fields are <span class="text-danger">Compulsory *</span>.</strong>)</p>
+							</div>
+							<div class="r-form-1-top-right">
+								<i class="fa fa-code"></i>
+							</div>
+						</div>
+						<div class="r-form-1-bottom">
+							<form enctype="multipart/form-data" action="/FoundItem" method="post">
+								<div class="form-group">
+									<label class="sr-only" for="ItemName">Item Name</label>
+									<input type="text" name="ItemName" placeholder="Item Name..." class="r-form-1-first-name form-control" id="r-form-1-first-name">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="ItemDesc">Item Description</label>
+									<input type="text" name="ItemDesc" placeholder="Item Description..." class="r-form-1-last-name form-control" id="r-form-1-last-name">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="ItemDate">Estimated Date of Losing</label>
+									<input type="text" name="ItemDate" placeholder="Date Picker Here..." class="r-form-1-email form-control" id="r-form-1-email">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="FoundImg">Upload an Image</label>
+									<input type="file" name="FoundImg" value="Choose Image" />
+								</div>
+								<button type="submit" class="btn-warning">I Found This!</button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+            </div>
+        </div>
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+        <!-- Javascript -->
+        <script src="./pages/postFoundPage/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="./pages/postFoundPage/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./pages/postFoundPage/assets/js/jquery.backstretch.min.js"></script>
+        <script src="./pages/postFoundPage/assets/js/wow.min.js"></script>
+        <script src="./pages/postFoundPage/assets/js/retina-1.1.0.min.js"></script>
+        <script src="./pages/postFoundPage/assets/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <script>
+        $(document).ready(function(){
+        var date_input=$('input[name="ItemDate"]'); //our date input has the name "date"
+        var options={
+          format: 'yyyy-mm-dd',
+          todayHighlight: true,
+          autoclose: true
+          };
+        date_input.datepicker(options);
+        })
+        </script>
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>

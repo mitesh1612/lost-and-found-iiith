@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include head %>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+    .image-container{text-align:center}
+    </style>
+</head>
+<body>
+  <header class="banner navbar navbar-default navbar-static-top" role="banner">
+    <div class="container"  style="background-color:aqua; width:100%">
+      <div class="cta pull-right">
+        <%if (sess) { %>
+          <a class="text-primary" href="/Logout">Logout</a>
+          <% } else{ %>
+        <a class="text-primary" href="/SignUplogin">SignUp/Login</a>
+        <% } %>
+      </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="navigationcta" >
+
+                    <nav class="collapse navbar-left navbar-collapse" role="navigation">
+
+                        <ul id="menu-primary-navigation" class="nav navbar-nav" style="color:black">
+                            <li class="active menu-home">
+                                <a class="text-primary" href="/">Home</a>
+                            </li>
+                            <li class="menu-about">
+                                <a class="text-primary" href="">About</a>
+                            </li>
+                            <li class="menu-contact">
+                              <a class="text-primary" href="">Contact</a>
+                            </li>
+                            <li class="menu-search">
+                              <a class="text-primary" href="">Search</a>
+                            </l>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+      </div>
+    </div>
+
+        <div class="container">
+          <div>
+            <a href="/viewAllLost"><div class="">Lost Items</div></a>
+            <a href="/viewAllFound"><div class="">Found Items</div></a>
+          </div>
+        </div>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    </header>
+    <div class="wrap container " role="document">
+        <main class="main" role="main">
+          <% for(var i=0; i<lostitem.length; i++) {%>
+          <div class="row" style="border:none; background:white; height:210px;">
+		<div class="col-xs-6">
+			<img src="./image/blue.jpeg" style="height:200px; margin-left:-15px;" />
+		</div>
+		<div class="col-xs-6">
+			<h3><%= lostitem[i].Itemname %></h3>
+			<p style="font-size:10px; color:#03225C;"><%= lostitem[i].ItemDescription %></p>
+		</div>
+	</div>
+  <% } %>
+        </main>
+    </div>
+<footer>
+  <% include footer %>
+  <script src="./js/postItem.js"></script>
+</footer>
+</body>
+
+</html>

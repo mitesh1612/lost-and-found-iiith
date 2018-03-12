@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include head %>
+</head>
+
+<body>
+  <header class="banner navbar navbar-default navbar-static-top" role="banner">
+    <div class="container"  style="background-color:aqua; width:100%">
+      <div class="cta pull-right">
+        <%if (sess.email) { %>
+          <span> Hi <%= sess.userName %> !!</span>
+          <a class="text-primary" href="/Logout">Logout</a>
+          <% } else{ %>
+        <a class="text-primary" href="/SignUplogin">SignUp/Login</a>
+        <% } %>
+      </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="navigationcta" >
+
+                    <nav class="collapse navbar-left navbar-collapse" role="navigation">
+
+                        <ul id="menu-primary-navigation" class="nav navbar-nav" style="color:black">
+                            <li class="active menu-home">
+                                <a class="text-primary" href="/">Home</a>
+                            </li>
+                            <li class="menu-about">
+                                <a class="text-primary" href="">About</a>
+                            </li>
+                            <li class="menu-contact">
+                              <a class="text-primary" href="">Contact</a>
+                            </li>
+                            <li class="menu-search">
+                              <a class="text-primary" href="">Search</a>
+                            </l>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+      </div>
+    </div>
+
+
+    </header>
+    <div class="wrap on" role="document">
+      <div class="content">
+        <main class="main-fullwidth" role="main">
+          <section id="lostorfound" class="text-center" style="color:white">
+            <div class="col-sm-6 lost" style="background-image:url('image/f1.jpeg');">
+              <br>
+              <br>
+              <h1>I have</h1>
+              <h1>Lost</h1>
+              <br>
+              <p>Have you lost a beloved pet or personal possession?
+                You can reach out to thousands of people to help find
+                what you are looking for.</p>
+                <br>
+                <%if (sess.email) { %>
+              <a class="btn btn-default" href="/postLostItem">Post an item</a>
+              <br>
+              <% } else{ %>
+                <a class="btn btn-default" href="/UnregisteredUser">Post an item</a>
+                <% } %>
+              <br>
+              <br>
+              <a class="btn btn-default" href="/viewAllLost">View all lost items</a>
+            </div>
+            <div class="col-sm-6 found" style="background-image:url('./image/f2.jpeg');">
+              <br>
+              <br>
+              <h1>I have</h1>
+              <h1>Found</h1>
+              <br>
+              <p>Have you found an item belonging to someone else?
+                You can reach out to thousands of people to help reunite
+                the item with their owner.</p>
+                  <br>
+                  <%if (sess.email) { %>
+                  <a class="btn btn-default" href="/postFoundItem">Post an item</a>
+                <br>
+                <% } else{ %>
+                  <a class="btn btn-default" href="/UnregisteredUser">Post an item</a>
+                  <% } %>
+                <br>
+                <br>
+                <a class="btn btn-default" href="viewAllFound">View all found items</a>
+              </div>
+            </section>
+            <br>
+            <section>
+              <div class="container text-center">
+              </div>
+            </section>
+            <section>
+              <div class="container text-center">
+                  <h2 id="intro-title">It is a free way to find lost items and return found items!
+                  </h2>
+              </div>
+          </section>
+          <div id="threesteps" class="arrow-anchor text-center">
+              <a href="#threesteps">
+              <img class="arrow" src="./image/grey_arrow_down.png" width="55" alt="arrow"/>
+              </a>
+          </div>
+            <section id="three_easy_steps">
+              <div class="container text-center">
+                  <h2 id="steps-title">Our online platform can provide results with 3 easy steps</h2>
+                  <div class="row">
+                      <div class="col-sm-4 step1">
+                          <img src="./image/number1.jpg" width="125" alt="number 1 graphic"/>
+                          <img class="lbx_arrow" src="image/lbx_arrow.png" width="20" alt="arrow"/>
+                          <h3>Create an account</h3>
+                          <p>You can quickly sign up to our FREE service; allowing you to post items, contact other users and comment on lost and found appeals.
+                          </p>
+                      </div>
+                      <div class="col-sm-4 step2">
+                          <img src="./image/number2.jpg" width="125" alt="number 2 graphic">
+                          <img class="lbx_arrow" src="./image/lbx_arrow.png" width="20" alt="arrow"/>
+                          <h3>Post a lost or found item</h3>
+                          <p>Make your appeal visible to thousands of people in your area by uploading a photo and description of your item to our database.
+                          </p>
+
+                       </div>
+                       <div class="col-sm-4 step3">
+                           <img src="./image/number3.jpg" width="125" alt="number 3 graphic"/>
+                           <h3>Receive Notifications</h3>
+                           <p>You will receive a confidential message from the finder/owner when they locate your item.</p>
+                       </div>
+                   </div>
+
+               </div>
+           </section>
+  </main>
+      </div>
+<footer>
+  <% include footer %>
+</footer>
+</body>
+
+</html>

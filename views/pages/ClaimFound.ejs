@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="no-js">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+
+    <!-- Meta info -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Found Item Details</title>
+    <meta content="" name="description" />
+    <link rel="Shortcut Icon" type="image/x-icon" href="#" />
+
+	<link href="project-detail-page.html" rel="next" />
+	<link href="index.html" rel="prev" />
+    <meta name="author" content="" />
+    <meta name="format-detection" content="" />
+
+    <!-- Styles -->
+    <link href="styles/main.css" rel="stylesheet" media="screen, print" type="text/css" />
+    <script src="lib/modernizr-2.6.2.js"></script>
+      <% include head %>
+</head>
+<body>
+  <header class="banner navbar navbar-inverse navbar-static-top" role="banner">
+    <div class="container"  style="background-color:black; width:100%">
+      <div class="cta pull-right">
+        <%if (sess.email) { %>
+          <span class="badge"> Hi <%= sess.userName %> !!</span>
+          <a class="btn btn-warning" href="/Logout">Logout</a>
+          <% } else{ %>
+        <a class="text-primary" href="/SignUplogin">SignUp/Login</a>
+        <% } %>
+      </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="navigationcta" >
+
+                    <nav class="collapse navbar-left navbar-collapse" role="navigation">
+
+                        <ul id="menu-primary-navigation" class="nav navbar-nav" style="color:black">
+                            <li class="active menu-home">
+                                <a class="text-primary" href="/">Home</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+  </header>
+    <div id="container">
+        <section id="content">
+
+<div id="pfd-work">
+	<div id="work-bio">
+		<header>
+			<div id="pfd">
+
+        <h1 class="text-info">Found Item Details</h1>
+            </div>
+
+			<div id="preamble">
+        <h1 style="font-size:30px;" class=""><strong><%= founditem.Itemname %></strong></h1>
+        <code style="font-size:20px;"><%= founditem.ItemDescription %></code>
+        <br><br><br><em> - Posted By User: </em><br><br>
+        <pre style="font-size:17px;"><%= founditem.postedBy %></pre>
+
+			</div>
+
+            <ul id="links">
+                <li>
+                    <a href="/viewAllFound" id="home">Home</a>
+                </li>
+                <li>
+                    <a href="/claimFoundTable?ItemID=<%= founditem._id %>&Itemname=<%= founditem.Itemname %>" id="ilovethis"><span>Claim</span></a>
+                </li>
+            </ul>
+		</header>
+    </div>
+
+    <section id="work-visuals">
+    	<ul>
+			<li data-visual="website-design-florentina-norfolk"><img src="<%= founditem.imgPath %>">
+		&nbsp;</li>
+			<!-- <li data-visual="florentina-logo-design"><img src="images/work/project-detail-2.jpg">
+		&nbsp;</li>
+			<li data-visual="ipad-website-design-florentina-events"><img src="images/work/project-detail-3.jpg">
+		&nbsp;</li>
+			<li data-visual="florentina-website-design-full-page"><img src="images/work/project-detail-4.jpg">
+		&nbsp;</li> -->
+		</ul>
+    </section>
+
+</div>
+</section>
+
+
+<footer id="msf">
+     <div class="wrapper">
+         <div id="legal">
+           <span class="text-warning">Created by<br>Swati Mitesh &amp; Rahil  &copy; 2017</span>
+         </div>
+
+     </div><!-- wrapper -->
+ </footer><!-- footer -->
+    </div><!-- container -->
+
+
+
+
+
+  <script src="ajax/jquery-1.11.0.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/jquery-ext.js"></script>
+  	<script src="scripts/pyaari-main.1.0.js"></script>
+    <script src="scripts/pyaari-menu.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            PfdMenu._ctor();
+        });
+    </script>
+
+    <script src="scripts/pyaari-work-bio.1.0.js"></script>
+
+
+</body>
+</html>

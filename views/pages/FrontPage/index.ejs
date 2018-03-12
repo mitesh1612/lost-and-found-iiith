@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Lost and Found</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="./pages/FrontPage/css/base.css">
+    <link rel="stylesheet" href="./pages/FrontPage/css/vendor.css">
+    <link rel="stylesheet" href="./pages/FrontPage/css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="./pages/FrontPage/js/modernizr.js"></script>
+    <script src="./pages/FrontPage/js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="./pages/FrontPage/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./pages/FrontPage/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="/"><img src="./pages/FrontPage/images/logo.png" alt="Homepage"></a>
+        </div>
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+              <%if (sess.email) { %>
+                <li><a class="smoothscroll" href="#"> Hi <%= sess.userName %> !!</a></li>
+                <li><a class="" href="/Logout">Logout</a></li>
+                <% } else{ %>
+                <li><a class="" href="/SignUplogin" title="signup">Sign Up</a></li>
+                <li><a class=""  href="/SignUplogin" title="login">Login</a></li>
+                <li><a class=""  href="/aboutUs" title="aboutus">About Us</a></li>
+                <% } %>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+   <!-- home
+   ================================================== -->
+   <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="./pages/FrontPage/images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h3>Welcome to our Site...</h3>
+
+                <h1>
+                    Lost Something? <br>
+                    Or Found It? <br>
+                </h1>
+
+                <div class="home-content__buttons">
+                    <%if (sess.email) { %>
+                    <a href="/postLostItem" class="btn btn--stroke">
+                        Lost Something?
+                    </a>
+                    <% } else{ %>
+                      <a href="/UnregisteredUser" class="btn btn--stroke">
+                          Lost Something?
+                      </a>
+                    <% } %>
+                    <a href="/viewAllLost" class="btn btn--stroke">
+                        View All Lost
+                    </a>
+                    <%if (sess.email) { %>
+                    <a href="/postFoundItem" class="btn btn--stroke">
+                        Found Something?
+                    </a>
+                    <% } else{ %>
+                    <a href="/UnregisteredUser" class="btn btn--stroke">
+                          Found Something?
+                    </a>
+                    <% } %>
+                    <a href="/viewAllFound" class="btn btn--stroke">
+                        View All Found
+                    </a>
+                </div>
+
+                <div class="home-content__scroll">
+                    <a href="#about" class="scroll-link smoothscroll">
+                        <span>Scroll Down</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div> <!-- end home-content -->
+
+
+        <!-- end home-social -->
+
+    </section> <!-- end s-home -->
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full text-center">
+                <h3>About</h3>
+                <h1>About Our Website</h1>
+                <p class="lead">Welcome to our Lost and Found Site! Here you can post about items you lost or post items that you found! Register to start posting. You can also view all the items the users found or lost and check if something rings a bell.</p>
+            </div>
+        </div>
+
+        <div class="row about-content">
+
+            <div class="col-six tab-full left">
+                <h3>Howdy!</h3>
+
+                <p>Lost &amp; Found is a free way to find lost items and return found items!</p>
+                <p> You can quickly sign up to our FREE service; allowing you to post items, contact other users and comment on lost and found appeals.</p>
+                <p>Make your appeal visible to thousands of people in your area by uploading a photo and description of your item to our database.</p>
+                <p>Use our in-depth search engine to browse through all reported lost and found</p>
+
+                <p>
+              This site is created by <strong>Swati Bhandari, Mitesh Shah and Rahil Sheth</strong>.
+                </p>
+            </div>
+
+            <div class="col-six tab-full right">
+                <h3>Items Users Lost and Found</h3>
+
+                <ul class="skill-bars">
+                    <li>
+                    <div class="progress percent90"><span>90%</span></div>
+                    <strong>Items Found</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent85"><span>85%</span></div>
+                    <strong>Items Resolved</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent70"><span>70%</span></div>
+                    <strong>Items Claimed</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent95"><span>95%</span></div>
+                    <strong>Items Lost</strong>
+                    </li>
+                </ul>
+            </div>
+
+        </div> <!-- end about-content -->
+
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="./pages/FrontPage/js/jquery-3.2.1.min.js"></script>
+    <script src="./pages/FrontPage/js/plugins.js"></script>
+    <script src="./pages/FrontPage/js/main.js"></script>
+
+</body>
+
+</html>
